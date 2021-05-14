@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:16:36 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/10 16:52:55 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/14 16:40:47 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,14 @@ int	join_hex_sign(char **buf, t_flags *flags, int *buflen)
 		free(*buf);
 		if (tmp_buf == NULL)
 			return (-1);
+		*buf = tmp_buf;
 		*buflen += 2;
 		ret = 1;
 	}
 	return (ret);
 }
 
-int	join_minus_nozero(char **buf, t_flags *flags, int *buflen)
+int	join_sign_nozero(char **buf, t_flags *flags, int *buflen)
 {
 	int		ret;
 	char	*tmp_buf;
@@ -75,7 +76,7 @@ int	join_minus_nozero(char **buf, t_flags *flags, int *buflen)
 	return (ret);
 }
 
-int	join_minus_zero(char **buf, t_flags *flags, int *buflen)
+int	join_sign_zero(char **buf, t_flags *flags, int *buflen)
 {
 	int		ret;
 	char	*tmp_buf;

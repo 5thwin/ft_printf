@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 12:57:23 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/10 22:04:43 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/13 14:20:52 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	fill_space(char **space, t_flags *flags, int len)
 		fill_char = '0';
 	i = 0;
 	while (i < len)
-		*space[i++] = fill_char;
-	*space[i] = '\0';
+		(*space)[i++] = fill_char;
+	(*space)[i] = '\0';
 }
 
 int		print_s(t_flags *flags, va_list ap)

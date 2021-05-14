@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:20:43 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/10 22:12:59 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/14 16:26:37 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ void	ft_t_flags_initialize(t_flags *flags)
 	flags->precision = -1;
 	flags->type = 0;
 	flags->width = 0;
+}
+
+void	invalid_flag_ignore(t_flags *flags)
+{
+	if (flags->minus == 1)
+		flags->zero = 0;
 }
 
 int		flag_classifier(char c, t_flags *flags)

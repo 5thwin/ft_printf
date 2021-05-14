@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 16:53:37 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/10 22:03:44 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/14 16:52:41 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ unsigned long long	set_nbr_base_sign(t_flags *flags, va_list ap)
 		if ((int)ret < 0)
 		{
 			flags->nbrsign = -1;
-			ret = -ret;
+			ret = -(int)ret;
 		}
 	}
 	else if (flags->type == 'x' || flags->type == 'X')
@@ -43,7 +43,7 @@ unsigned long long	set_nbr_base_sign(t_flags *flags, va_list ap)
 
 int					ft_nbrlen(unsigned long long nbr, t_flags *flags)
 {
-	int		len;
+	int	len;
 
 	if (nbr == 0 && flags->precision != 0)
 		return (1);
@@ -62,8 +62,8 @@ void				fill_precision_zero_null(char **buf, int nbrlen, int buflen)
 
 	i = 0;
 	while (i < buflen - nbrlen)
-		*buf[i++] = '0';
-	*buf[buflen] = '\0';
+		(*buf)[i++] = '0';
+	(*buf)[buflen] = '\0';
 }
 
 void				fill_nbr(unsigned long long nbr, char **buf,
@@ -97,13 +97,13 @@ int					print_nbr(t_flags *flags, va_list ap)
 		return (-1);
 	fill_precision_zero_null(&buf, nbrlen, buflen);
 	fill_nbr(nbr, &buf, flags, buflen);
-	if (join_minus_nozero(&buf, flags, &buflen) == -1)
+	if (join_sign_nozero(&buf, flags, &buflen) == -1)
 		return (-1);
 	if (join_hex_sign(&buf, flags, &buflen) == -1)
 		return (-1);
 	if (join_width_buf(&buf, flags) == -1)
 		return (-1);
-	if (join_minus_zero(&buf, flags, &buflen) == -1)
+	if (join_sign_zero(&buf, flags, &buflen) == -1)
 		return (-1);
 	ft_putstr_fd(buf, 1);
 	free(buf);

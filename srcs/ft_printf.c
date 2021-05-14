@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 15:08:57 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/10 22:16:18 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/14 16:24:23 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ int	print_format(t_flags *flags, va_list ap)
 	if (flags->type == 'd' || flags->type == 'i' || flags->type == 'p'
 		|| flags->type == 'x' || flags->type == 'X' || flags->type == 'u')
 		return (print_nbr(flags, ap));
+	if (flags->type == 'c' || flags->type == '%')
+		return (print_c(flags, ap));
 	return (-1);
 }
 
 int	set_length_and_type(const char *format, t_flags *flags, va_list ap, int *i)
 {
 	if (ft_strchr(TYPE_DIC, format[*i]) != (NULL))
-		flags->type = format[*i++];
+		flags->type = format[(*i)++];
 	if (ap == 0)
 		;
 	return (1);
@@ -43,6 +45,7 @@ int	type_analysis(const char *format, va_list ap, int *i)
 	if (format[*i] == '.')
 		set_precision(format, &flags, ap, i);
 	set_length_and_type(format, &flags, ap, i);
+	invalid_flag_ignore(&flags);
 	return (print_format(&flags, ap));
 }
 

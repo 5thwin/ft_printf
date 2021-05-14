@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 15:09:02 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/10 22:31:08 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/14 16:19:18 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
-# include <stdio.h>
 # define TYPE_DIC "csdiupxXnfge%\0"
+# define IGN_ZERO "sc%\0"
 
 typedef struct	s_flags
 {
@@ -46,11 +46,17 @@ int				print_nbr(t_flags *flags, va_list ap);
 */
 int				print_s(t_flags *flags, va_list ap);
 void			fill_space(char **space, t_flags *flags, int len);
+
+/*
+******************  <ft_print_char.c>  ******************
+*/
+int				print_c(t_flags *flags, va_list ap);
 /*
 ******************  <ft_flags.c>  ******************
 */
 void			ft_t_flags_initialize(t_flags *flags);
 int				flag_classifier(char c, t_flags *flags);
+void			invalid_flag_ignore(t_flags *flags);
 /*
 ******************  <ft_width.c>  ******************
 */
@@ -74,6 +80,6 @@ char			*ft_baseset(char type);
 */
 int				join_width_buf(char **buf, t_flags *flags);
 int				join_hex_sign(char **buf, t_flags *flags, int *buflen);
-int				join_minus_nozero(char **buf, t_flags *flags, int *buflen);
-int				join_minus_zero(char **buf, t_flags *flags, int *buflen);
+int				join_sign_nozero(char **buf, t_flags *flags, int *buflen);
+int				join_sign_zero(char **buf, t_flags *flags, int *buflen);
 #endif
