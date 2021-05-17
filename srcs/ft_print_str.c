@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 12:57:23 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/17 15:40:28 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/17 16:57:03 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		print_s(t_flags *flags, va_list *ap)
 
 	arg_str = (char *)va_arg(*ap, void *);
 	if (arg_str == NULL)
-		arg_str = "null";
+		arg_str = "(null)";
 	if (flags->precision == -1 || (size_t)flags->precision > ft_strlen(arg_str))
 		flags->precision = ft_strlen(arg_str);
 	buf = trim_str_precision(arg_str, flags->precision);

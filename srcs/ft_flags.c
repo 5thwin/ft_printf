@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:20:43 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/14 16:26:37 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/17 16:53:47 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void	invalid_flag_ignore(t_flags *flags)
 {
 	if (flags->minus == 1)
 		flags->zero = 0;
+	if ((ft_strchr(NUMBER_DIC, flags->type) != (NULL))
+		&& flags->precision > -1 && flags->width > 0)
+		flags->zero = 0;
+	if (flags->type == 'p')
+		flags->precision = -1;
 }
 
 int		flag_classifier(char c, t_flags *flags)

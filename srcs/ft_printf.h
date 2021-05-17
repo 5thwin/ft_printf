@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 15:09:02 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/17 15:38:06 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/17 16:45:49 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 # define TYPE_DIC "csdiupxXnfge%\0"
-# define IGN_ZERO "sc%\0"
+# define NUMBER_DIC "diupxX\0"
 
 typedef struct	s_flags
 {
