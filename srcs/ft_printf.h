@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 15:09:02 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/14 16:19:18 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/17 15:38:06 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ int				ft_printf(const char *format, ...);
 /*
 ******************  <ft_print_nbr.c>  ******************
 */
-int				print_nbr(t_flags *flags, va_list ap);
+int				print_nbr(t_flags *flags, va_list *ap);
 /*
 ******************  <ft_print_str.c>  ******************
 */
-int				print_s(t_flags *flags, va_list ap);
+int				print_s(t_flags *flags, va_list *ap);
 void			fill_space(char **space, t_flags *flags, int len);
 
 /*
 ******************  <ft_print_char.c>  ******************
 */
-int				print_c(t_flags *flags, va_list ap);
+int				print_c(t_flags *flags, va_list *ap);
 /*
 ******************  <ft_flags.c>  ******************
 */
@@ -61,13 +61,13 @@ void			invalid_flag_ignore(t_flags *flags);
 ******************  <ft_width.c>  ******************
 */
 int				set_width(const char *format, t_flags *flags,
-							va_list ap, int *i);
+							va_list *ap, int *i);
 
 /*
 ******************  <ft_precision.c>  ******************
 */
 int				set_precision(const char *format, t_flags *flags,
-								va_list ap, int *i);
+								va_list *ap, int *i);
 
 /*
 ******************  <utils_base.c>  ******************

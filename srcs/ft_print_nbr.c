@@ -6,20 +6,20 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 16:53:37 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/14 16:52:41 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/17 15:40:11 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned long long	set_nbr_base_sign(t_flags *flags, va_list ap)
+unsigned long long	set_nbr_base_sign(t_flags *flags, va_list *ap)
 {
 	unsigned long long	ret;
 
 	ret = 0;
 	if (flags->type == 'd' || flags->type == 'i')
 	{
-		ret = (unsigned long long)va_arg(ap, unsigned long long);
+		ret = (unsigned long long)va_arg(*ap, unsigned long long);
 		if ((int)ret < 0)
 		{
 			flags->nbrsign = -1;
@@ -29,14 +29,14 @@ unsigned long long	set_nbr_base_sign(t_flags *flags, va_list ap)
 	else if (flags->type == 'x' || flags->type == 'X')
 	{
 		flags->nbrbase = 16;
-		ret = (unsigned long long)va_arg(ap, unsigned int);
+		ret = (unsigned long long)va_arg(*ap, unsigned int);
 	}
 	else if (flags->type == 'u')
-		ret = (unsigned long long)va_arg(ap, unsigned int);
+		ret = (unsigned long long)va_arg(*ap, unsigned int);
 	else if (flags->type == 'p')
 	{
 		flags->nbrbase = 16;
-		ret = va_arg(ap, unsigned long long);
+		ret = va_arg(*ap, unsigned long long);
 	}
 	return (ret);
 }
@@ -82,7 +82,7 @@ void				fill_nbr(unsigned long long nbr, char **buf,
 	}
 }
 
-int					print_nbr(t_flags *flags, va_list ap)
+int					print_nbr(t_flags *flags, va_list *ap)
 {
 	unsigned long long	nbr;
 	int					nbrlen;

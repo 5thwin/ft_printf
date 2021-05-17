@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 12:57:23 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/13 14:20:52 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/17 15:40:28 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void	fill_space(char **space, t_flags *flags, int len)
 	(*space)[i] = '\0';
 }
 
-int		print_s(t_flags *flags, va_list ap)
+int		print_s(t_flags *flags, va_list *ap)
 {
 	char	*arg_str;
 	char	*buf;
 	int		ret;
 
-	arg_str = (char *)va_arg(ap, void *);
+	arg_str = (char *)va_arg(*ap, void *);
 	if (arg_str == NULL)
 		arg_str = "null";
 	if (flags->precision == -1 || (size_t)flags->precision > ft_strlen(arg_str))

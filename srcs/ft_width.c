@@ -6,13 +6,13 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:17:52 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/13 11:05:45 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/17 15:38:16 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	set_width(const char *format, t_flags *flags, va_list ap, int *i)
+int	set_width(const char *format, t_flags *flags, va_list *ap, int *i)
 {
 	if (ft_isdigit(format[*i]))
 	{
@@ -22,7 +22,7 @@ int	set_width(const char *format, t_flags *flags, va_list ap, int *i)
 	}
 	else
 	{
-		flags->width = va_arg(ap, int);
+		flags->width = va_arg(*ap, int);
 		if (flags->width < 0)
 		{
 			flags->minus = 1;

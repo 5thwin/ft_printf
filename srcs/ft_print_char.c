@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:58:31 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/14 16:16:42 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/17 15:41:22 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int	put_space(t_flags *flags)
 	return (ret);
 }
 
-int	print_c(t_flags *flags, va_list ap)
+int	print_c(t_flags *flags, va_list *ap)
 {
 	int		ret;
 	int		c;
 
 	ret = 0;
 	if (flags->type == 'c')
-		c = va_arg(ap, int);
+		c = va_arg(*ap, int);
 	else if (flags->type == '%')
 		c = '%';
 	if (flags->minus == 1)
