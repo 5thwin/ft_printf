@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 15:09:02 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/17 16:45:49 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/18 13:28:57 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_flags
 	char	type;
 	int		nbrbase;
 	int		nbrsign;
+	char	*length;
 }				t_flags;
 
 /*
@@ -70,6 +71,12 @@ int				set_precision(const char *format, t_flags *flags,
 								va_list *ap, int *i);
 
 /*
+******************  <utils_number.c>  ******************
+*/
+int				ft_nbrlen(unsigned long long nbr, t_flags *flags);
+void			add_sign(char **buf, t_flags *flags, int buflen,
+								char **tmp_buf);
+/*
 ******************  <utils_base.c>  ******************
 */
 int				ft_max_int(int a, int b);
@@ -82,4 +89,5 @@ int				join_width_buf(char **buf, t_flags *flags);
 int				join_hex_sign(char **buf, t_flags *flags, int *buflen);
 int				join_sign_nozero(char **buf, t_flags *flags, int *buflen);
 int				join_sign_zero(char **buf, t_flags *flags, int *buflen);
+int				join_space_nozero(char **buf, t_flags *flags, int *buflen);
 #endif

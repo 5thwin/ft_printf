@@ -6,7 +6,7 @@
 #    By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/10 17:47:25 by seunoh            #+#    #+#              #
-#    Updated: 2021/05/14 16:05:11 by seunoh           ###   ########.fr        #
+#    Updated: 2021/05/18 12:22:36 by seunoh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT_LIB	= libft.a
 
 SRCS = srcs/ft_flags.c srcs/ft_precision.c srcs/ft_print_nbr.c srcs/ft_print_str.c\
 		srcs/ft_printf.c srcs/ft_width.c srcs/utils_base.c srcs/utils_join_buf.c\
-		srcs/ft_print_char.c
+		srcs/ft_print_char.c srcs/utils_number.c
 
 LIBC	= ar rc
 OBJS = ${SRCS:.c=.o}

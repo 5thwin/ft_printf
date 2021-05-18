@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:24:27 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/17 17:05:30 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/18 11:10:05 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	set_precision(const char *format, t_flags *flags, va_list *ap, int *i)
 		(*i)++;
 	}
 	if (flags->precision < 0)
-	{
 		flags->precision = -1;
-	}
 	return (flags->precision);
 }

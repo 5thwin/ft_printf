@@ -6,13 +6,13 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:16:36 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/17 15:41:20 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/18 13:49:38 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	join_width_buf(char **buf, t_flags *flags)
+int		join_width_buf(char **buf, t_flags *flags)
 {
 	char	*space;
 	char	*tmpbuf;
@@ -37,7 +37,7 @@ int	join_width_buf(char **buf, t_flags *flags)
 	return ((int)ft_strlen(*buf));
 }
 
-int	join_hex_sign(char **buf, t_flags *flags, int *buflen)
+int		join_hex_sign(char **buf, t_flags *flags, int *buflen)
 {
 	char	*tmp_buf;
 	int		ret;
@@ -56,16 +56,19 @@ int	join_hex_sign(char **buf, t_flags *flags, int *buflen)
 	return (ret);
 }
 
-int	join_sign_nozero(char **buf, t_flags *flags, int *buflen)
+int		join_sign_nozero(char **buf, t_flags *flags, int *buflen)
 {
 	int		ret;
 	char	*tmp_buf;
 
 	ret = 0;
-	if (flags->nbrsign == -1 && flags->zero == 0
-			&& (flags->type == 'd' || flags->type == 'i'))
+	if ((flags->nbrsign == -1 || flags->plus == 1) && flags->zero == 0
+		&& (flags->type == 'd' || flags->type == 'i'))
 	{
-		tmp_buf = ft_strjoin("-", *buf);
+		if (flags->nbrsign == -1)
+			tmp_buf = ft_strjoin("-", *buf);
+		else
+			tmp_buf = ft_strjoin("+", *buf);
 		free(*buf);
 		if (tmp_buf == NULL)
 			return (-1);
@@ -76,25 +79,44 @@ int	join_sign_nozero(char **buf, t_flags *flags, int *buflen)
 	return (ret);
 }
 
-int	join_sign_zero(char **buf, t_flags *flags, int *buflen)
+int		join_sign_zero(char **buf, t_flags *flags, int *buflen)
 {
 	int		ret;
 	char	*tmp_buf;
 
 	ret = 0;
-	if (flags->nbrsign == -1 && flags->zero == 1)
+	if ((flags->nbrsign == -1 || flags->plus == 1 || flags->space == 1)
+		&& flags->zero == 1)
 	{
 		if (*buflen >= flags->width)
 		{
-			tmp_buf = ft_strjoin("-", *buf);
+			add_sign(buf, flags, *buflen, &tmp_buf);
 			free(*buf);
 			if (tmp_buf == NULL)
 				return (-1);
 			*buf = tmp_buf;
 			ret = 1;
 		}
-		else if (*buflen < flags->width)
-			*buf[0] = '-';
+		else
+			add_sign(buf, flags, *buflen, &tmp_buf);
+	}
+	return (ret);
+}
+
+int		join_space_nozero(char **buf, t_flags *flags, int *buflen)
+{
+	int		ret;
+	char	*tmp_buf;
+
+	ret = 0;
+	if (flags->zero == 0 && flags->space == 1 && *buflen >= flags->width)
+	{
+		tmp_buf = ft_strjoin(" ", *buf);
+		free(*buf);
+		if (tmp_buf == NULL)
+			return (-1);
+		*buf = tmp_buf;
+		ret = 1;
 	}
 	*buflen = ft_strlen(*buf);
 	return (ret);

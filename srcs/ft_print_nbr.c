@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 16:53:37 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/17 15:40:11 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/18 13:37:10 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ unsigned long long	set_nbr_base_sign(t_flags *flags, va_list *ap)
 		if ((int)ret < 0)
 		{
 			flags->nbrsign = -1;
-			ret = -(int)ret;
+			ret = -ret;
 		}
 	}
 	else if (flags->type == 'x' || flags->type == 'X')
@@ -39,21 +39,6 @@ unsigned long long	set_nbr_base_sign(t_flags *flags, va_list *ap)
 		ret = va_arg(*ap, unsigned long long);
 	}
 	return (ret);
-}
-
-int					ft_nbrlen(unsigned long long nbr, t_flags *flags)
-{
-	int	len;
-
-	if (nbr == 0 && flags->precision != 0)
-		return (1);
-	len = 0;
-	while (nbr)
-	{
-		len++;
-		nbr /= flags->nbrbase;
-	}
-	return (len);
 }
 
 void				fill_precision_zero_null(char **buf, int nbrlen, int buflen)
@@ -82,6 +67,21 @@ void				fill_nbr(unsigned long long nbr, char **buf,
 	}
 }
 
+int					process_buf(t_flags *flags, char **buf, int *buflen)
+{
+	if (join_sign_nozero(buf, flags, buflen) == -1)
+		return (-1);
+	if (join_hex_sign(buf, flags, buflen) == -1)
+		return (-1);
+	if (join_width_buf(buf, flags) == -1)
+		return (-1);
+	if (join_sign_zero(buf, flags, buflen) == -1)
+		return (-1);
+	if (join_space_nozero(buf, flags, buflen) == -1)
+		return (-1);
+	return (0);
+}
+
 int					print_nbr(t_flags *flags, va_list *ap)
 {
 	unsigned long long	nbr;
@@ -97,13 +97,7 @@ int					print_nbr(t_flags *flags, va_list *ap)
 		return (-1);
 	fill_precision_zero_null(&buf, nbrlen, buflen);
 	fill_nbr(nbr, &buf, flags, buflen);
-	if (join_sign_nozero(&buf, flags, &buflen) == -1)
-		return (-1);
-	if (join_hex_sign(&buf, flags, &buflen) == -1)
-		return (-1);
-	if (join_width_buf(&buf, flags) == -1)
-		return (-1);
-	if (join_sign_zero(&buf, flags, &buflen) == -1)
+	if (process_buf(flags, &buf, &buflen) == -1)
 		return (-1);
 	ft_putstr_fd(buf, 1);
 	free(buf);
