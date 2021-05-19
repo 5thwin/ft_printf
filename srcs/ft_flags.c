@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:20:43 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/18 11:57:08 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/19 17:31:25 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	invalid_flag_ignore(t_flags *flags)
 	if ((ft_strchr(NUMBER_DIC, flags->type) != (NULL))
 		&& flags->precision > -1 && flags->width > 0)
 		flags->zero = 0;
-	if (flags->type == 'p')
+	if (flags->type == 'p' && flags->precision != 0)
 		flags->precision = -1;
 	if (flags->plus == 1)
 		flags->space = 0;
