@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 15:09:02 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/18 13:28:57 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/18 17:11:00 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int				set_precision(const char *format, t_flags *flags,
 /*
 ******************  <utils_number.c>  ******************
 */
-int				ft_nbrlen(unsigned long long nbr, t_flags *flags);
+int				ft_nbrlen(unsigned long long *nbr, t_flags *flags);
 void			add_sign(char **buf, t_flags *flags, int buflen,
 								char **tmp_buf);
 /*

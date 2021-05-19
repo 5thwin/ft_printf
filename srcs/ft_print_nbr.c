@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 16:53:37 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/18 13:37:10 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/19 15:55:36 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int					print_nbr(t_flags *flags, va_list *ap)
 	int					buflen;
 
 	nbr = set_nbr_base_sign(flags, ap);
-	nbrlen = ft_nbrlen(nbr, flags);
+	nbrlen = ft_nbrlen(&nbr, flags);
 	buflen = ft_max_int(nbrlen, flags->precision);
 	buf = (char *)malloc(sizeof(char) * (buflen + 1));
 	if (buf == NULL)
