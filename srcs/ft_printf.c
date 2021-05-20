@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 15:08:57 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/17 16:36:16 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/19 18:46:55 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int	print_format(t_flags *flags, va_list *ap)
 
 int	set_length_and_type(const char *format, t_flags *flags, va_list *ap, int *i)
 {
+	int	cnt;
+
+	cnt = 0;
 	if (ft_strchr(TYPE_DIC, format[*i]) != (NULL))
 		flags->type = format[(*i)++];
 	if (*ap == 0)

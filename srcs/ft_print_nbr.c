@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 16:53:37 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/19 15:55:36 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/20 14:06:22 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ int					process_buf(t_flags *flags, char **buf, int *buflen)
 	if (join_width_buf(buf, flags) == -1)
 		return (-1);
 	if (join_sign_zero(buf, flags, buflen) == -1)
-		return (-1);
-	if (join_space_nozero(buf, flags, buflen) == -1)
 		return (-1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 22:25:07 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/19 17:31:50 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/19 18:53:37 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main()
 {
-	int		a = -4;
+	int		a = -135;
 	int		b = 0;
 	char	c = 'a';
 	int		d = 2147483647;
@@ -37,11 +37,7 @@ int	main()
 	char	*t = "0x12345678";
 	char	*u = "-0";
 
-	ft_printf("f : %-9.p\n", NULL);
-	printf("p : %-9.p\n", NULL);
-	ft_printf("f : %-9.5p\n", NULL);
-	printf("p : %-9.5p\n", NULL);
-	ft_printf("f :%-9.-5p\n", a);
-	printf("%m :-9.-5p\n", a);
+	ft_printf("f : ||% -4.d||\n", a);
+	printf("p : ||% -4.d||\n", a);
 	return (0);
 }
