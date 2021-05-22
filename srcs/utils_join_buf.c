@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_join_buf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: seunoh <seunoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:16:36 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/20 14:09:22 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/22 10:15:54 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,24 +103,5 @@ int		join_sign_zero(char **buf, t_flags *flags, int *buflen)
 			add_sign(buf, flags, *buflen, &tmp_buf);
 	}
 	*buflen = ft_strlen(*buf);
-	return (ret);
-}
-
-int		join_space_nozero(char **buf, t_flags *flags, int *buflen)
-{
-	int		ret;
-	char	*tmp_buf;
-
-	ret = 0;
-	if (flags->zero == 0 && flags->space == 1
-		&& *buflen >= flags->width && flags->nbrsign != -1)
-	{
-		tmp_buf = ft_strjoin(" ", *buf);
-		free(*buf);
-		if (tmp_buf == NULL)
-			return (-1);
-		*buf = tmp_buf;
-		ret = 1;
-	}
 	return (ret);
 }

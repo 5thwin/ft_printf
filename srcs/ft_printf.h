@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: seunoh <seunoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 15:09:02 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/18 17:11:00 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/22 10:04:32 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,5 @@ int				join_width_buf(char **buf, t_flags *flags);
 int				join_hex_sign(char **buf, t_flags *flags, int *buflen);
 int				join_sign_nozero(char **buf, t_flags *flags, int *buflen);
 int				join_sign_zero(char **buf, t_flags *flags, int *buflen);
-int				join_space_nozero(char **buf, t_flags *flags, int *buflen);
+
 #endif
