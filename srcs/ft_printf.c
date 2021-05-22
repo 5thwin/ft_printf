@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: seunoh <seunoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 15:08:57 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/19 18:46:55 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/22 13:42:57 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,24 @@ int	set_length_and_type(const char *format, t_flags *flags, va_list *ap, int *i)
 
 int	type_analysis(const char *format, va_list *ap, int *i)
 {
-	t_flags	flags;
+	t_flags	*flags;
+	int		ret;
 
-	ft_t_flags_initialize(&flags);
-	while (flag_classifier(format[++(*i)], &flags))
+	flags = (t_flags *)malloc(sizeof(t_flags) * 1);
+	if (flags == NULL)
+		return (-1);
+	ft_t_flags_initialize(flags);
+	while (flag_classifier(format[++(*i)], flags))
 		;
 	if (ft_isdigit(format[*i]) || format[*i] == '*')
-		set_width(format, &flags, ap, i);
+		set_width(format, flags, ap, i);
 	if (format[*i] == '.')
-		set_precision(format, &flags, ap, i);
-	set_length_and_type(format, &flags, ap, i);
-	invalid_flag_ignore(&flags);
-	return (print_format(&flags, ap));
+		set_precision(format, flags, ap, i);
+	set_length_and_type(format, flags, ap, i);
+	invalid_flag_ignore(flags);
+	ret = print_format(flags, ap);
+	free(flags);
+	return (ret);
 }
 
 int	ft_printf(const char *format, ...)
