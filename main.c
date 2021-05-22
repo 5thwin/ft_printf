@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 22:25:07 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/22 10:35:43 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/22 11:24:50 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,29 @@ int	main()
 	char	*u = "-0";
 	a = -2;
 	b = -2;
+	printf("%*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, l, a, b, l, a, b, l, a, b, l, a, b, l, a, b, l);
+	ft_printf("%*.*d\n", a, b, l);
+	ft_printf("%*.*d, %*.*d\n", a, b, l, a, b, l);
+	ft_printf("%*.*d, %*.*d, %*.*d\n", a, b, l, a, b, l, a, b, l);
+	ft_printf("%*.*d, %*.*d, %*.*d, %*.*d\n", a, b, l, a, b, l, a, b, l, a, b, l);
+	ft_printf("%*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, l, a, b, l, a, b, l, a, b, l, a, b, l);
+	/*
+	a = -2;
+	b = -2;
+	ft_printf("f: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c,  a, b, l);
+	printf("p: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+	a = -2;
+	b = 2;
 	ft_printf("f: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
 	printf("p: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+	a = 2;
+	b = -2;
+	ft_printf("f: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+	printf("p: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+	a = 2;
+	b = 2;
+	ft_printf("f: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+	printf("p: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+	*/
 	return (0);
 }

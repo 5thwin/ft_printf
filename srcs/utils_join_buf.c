@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:16:36 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/22 10:16:55 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/22 11:36:45 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int		join_width_buf(char **buf, t_flags *flags)
 	space_len = flags->width - (int)ft_strlen(*buf);
 	space = (char *)malloc(sizeof(char) * (space_len + 1));
 	if (space == NULL)
+	{
+		free(*buf);
 		return (-1);
+	}
 	fill_space(&space, flags, space_len);
 	if (flags->minus == 0)
 		tmpbuf = ft_strjoin(space, *buf);
