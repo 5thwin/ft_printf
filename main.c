@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 22:25:07 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/22 13:43:31 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/22 18:50:04 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 
 int	main()
 {
-	int	a = -2;
-	int	b = -2;
-	int	l = 0;
-	ft_printf("%*.*d\n", a, b, l);
-	ft_printf("%*.*d, %*.*d\n", a, b, l, a, b, l);
-	ft_printf("%*.*d, %*.*d, %*.*d\n", a, b, l, a, b, l, a, b, l);
-	//ft_printf("%*.*d, %*.*d, %*.*d, %*.*d\n", a, b, l, a, b, l, a, b, l, a, b, l);
-	//ft_printf("%*.*d, %*.*d, %*.*d, %*.*d %*.*d\n", a, b, l, a, b, l, a, b, l, a, b, l, a, b, l);
+	char c = 's';
+	int k = 123456789;
+	ft_printf("||%5c||\n", c);
+	ft_printf("||%-5c||\n", c);
+
 	return (0);
 }
