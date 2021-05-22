@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: seunoh <seunoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:22:02 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/19 17:25:37 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/22 14:02:33 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_nbrlen(unsigned long long *nbr, t_flags *flags)
 	int					len;
 	unsigned long long	tmp;
 
-	if (*nbr == 0 && flags->precision != 0)
+	if (((unsigned long long)(*nbr) == 0) && (flags->precision != 0))
 		return (1);
 	len = 0;
 	num_typecast(nbr, flags);

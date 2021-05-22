@@ -6,7 +6,7 @@
 /*   By: seunoh <seunoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 16:53:37 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/22 11:28:11 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/22 14:05:27 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ unsigned long long	set_nbr_base_sign(t_flags *flags, va_list *ap)
 	ret = 0;
 	if (flags->type == 'd' || flags->type == 'i')
 	{
-		ret = (unsigned long long)va_arg(*ap, unsigned long long);
+		ret = (unsigned int)va_arg(*ap, unsigned int);
 		if ((int)ret < 0)
 		{
 			flags->nbrsign = -1;
