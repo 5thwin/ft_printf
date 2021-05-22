@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seunoh <seunoh@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: seunoh <seunoh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 22:25:07 by seunoh            #+#    #+#             */
-/*   Updated: 2021/05/19 18:53:37 by seunoh           ###   ########.fr       */
+/*   Updated: 2021/05/22 10:35:43 by seunoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main()
 {
-	int		a = -135;
+	int		a = -4;
 	int		b = 0;
 	char	c = 'a';
 	int		d = 2147483647;
@@ -36,8 +36,9 @@ int	main()
 	char	*s = "-2147483648";
 	char	*t = "0x12345678";
 	char	*u = "-0";
-
-	ft_printf("f : ||% -4.d||\n", a);
-	printf("p : ||% -4.d||\n", a);
+	a = -2;
+	b = -2;
+	ft_printf("f: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+	printf("p: %*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
 	return (0);
 }
